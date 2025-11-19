@@ -1,0 +1,53 @@
+/* 1. Define Light Theme (default) */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;  /* From your --color-section */
+  --bg-card: #ffffff;
+  --text-primary: #102d47;   /* From your --color-midnight_text */
+  --text-secondary: #668199; /* From your --color-grey */
+  --color-accent: #2f73f2;    /* From your --color-primary */
+  --border-primary: #ccd7e1; /* From your --color-border */
+
+  /* Keep your other colors available */
+  --color-secondary-muted: #547593;
+  --color-success: #3cd278;
+}
+
+/* 2. Define Dark Theme */
+[data-theme="dark"] {
+  --bg-primary: #081738;    /* From your --color-darkmode */
+  --bg-secondary: #081738;
+  --bg-card: #000f30;       /* From your --color-darklight */
+  --text-primary: #c0d5fb;  /* From your --color-Sky-blue-mist */
+  --text-secondary: #668199;
+  --color-accent: #2f73f2;    /* Stays the same */
+  --border-primary: #224767; /* From your --color-dark_border */
+}
+
+/* 3. Apply base styles */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* A global container class we can re-use */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}

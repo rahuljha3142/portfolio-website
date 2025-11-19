@@ -1,0 +1,46 @@
+.footer {
+  /* Use the secondary background color */
+  background-color: var(--bg-secondary);
+  
+  /* Use the primary border */
+  border-top: 1px solid var(--border-primary); 
+  
+  padding-top: 40px;
+  padding-bottom: 40px;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between; /* Puts items on opposite ends */
+  align-items: center;
+  flex-wrap: wrap; /* Allows wrapping on small screens */
+  gap: 20px; /* Space between items if they wrap */
+}
+
+.footer-copyright {
+  font-size: 0.9rem; /* 14px */
+  
+  /* Use the secondary text color */
+  color: var(--text-secondary); 
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 25px; /* Space between links */
+}
+
+.footer-link {
+  text-decoration: none;
+  font-size: 0.9rem; /* 14px */
+  font-weight: 500;
+  
+  /* Use the secondary text color */
+  color: var(--text-secondary); 
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  /* Change to accent color on hover */
+  color: var(--color-accent); 
+}

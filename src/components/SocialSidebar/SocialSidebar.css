@@ -1,0 +1,123 @@
+.social-links {
+  position: fixed;
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%);
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+  gap: 10px; /* Added gap for better spacing */
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  text-decoration: none;
+  font-size: 18px;
+  transition: width 0.4s ease;
+  overflow: hidden;
+  border-radius: 0 25px 25px 0; /* Rounded on right side only */
+  position: relative;
+  
+  /* Use theme variables */
+  background-color: var(--bg-card);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* The Icon Circle */
+.social-links a i {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 20px;
+  
+  /* Default Colors */
+  background-color: #111; 
+  color: #fff;
+  
+  transition: color 0.3s ease, background-color 0.3s ease;
+  z-index: 2;
+  flex-shrink: 0; /* Prevents icon from squishing */
+}
+
+/* The Text Label */
+.social-links a span {
+  position: absolute;
+  left: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  white-space: nowrap;
+  z-index: 1;
+  font-weight: 600;
+  
+  /* Text color based on theme */
+  color: var(--text-primary);
+}
+
+/* Hover Effects */
+.social-links a:hover {
+  width: 160px; /* Expand width */
+}
+
+.social-links a:hover span {
+  opacity: 1; /* Show text */
+}
+
+/* Specific Brand Colors on Hover */
+.facebook:hover i { background-color: #1877F2; color: white; }
+.instagram:hover i { background-color: #E1306C; color: white; }
+.linkedin:hover i { background-color: #0A66C2; color: white; }
+.github:hover i { background-color: #333; color: white; }
+.gmail:hover i { background-color: #D14836; color: white; }
+.phone:hover i { background-color: #2E7D32; color: white; }
+
+/* 📱 Mobile Styles */
+@media (max-width: 768px) {
+  .social-links {
+    flex-direction: row;
+    bottom: 20px; /* Floating at bottom */
+    top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    /* Use theme variables for background */
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    
+    padding: 10px 20px;
+    border-radius: 40px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+    gap: 15px;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: none;
+    background-color: transparent;
+    justify-content: center;
+  }
+
+  .social-links a i {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .social-links a:hover {
+    width: 40px; /* Don't expand on mobile */
+    background-color: transparent;
+  }
+
+  .social-links a span {
+    display: none; /* Hide text on mobile */
+  }
+}

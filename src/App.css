@@ -1,0 +1,11 @@
+.App {
+  /* Apply the theme's base background and text color */
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+
+  /* Ensure it takes up at least the full screen height */
+  min-height: 100vh;
+  
+  /* Smooth transition for theme switching */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}

@@ -1,0 +1,82 @@
+/* Header container */
+.header {
+  position: sticky; /* Makes the header stay at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  
+  /* Uses the --bg-card color from index.css */
+  background-color: var(--bg-card); 
+  
+  /* Uses the --border-primary color */
+  border-bottom: 1px solid var(--border-primary); 
+  
+  z-index: 1000; /* Ensures it stays on top of other content */
+  
+  /* Adds a smooth transition for theme changes */
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Navigation bar styling */
+.header-nav {
+  display: flex;
+  justify-content: space-between; /* Spaces items out */
+  align-items: center;
+  height: 70px; /* Gives the header a fixed height */
+}
+
+/* Logo styling */
+.header-logo {
+  text-decoration: none;
+  font-size: 1.5rem; /* 24px */
+  font-weight: 700;
+  
+  /* Uses the --color-accent from index.css */
+  color: var(--color-accent); 
+}
+
+/* Navigation links list */
+.header-links {
+  display: flex;
+  list-style: none; /* Removes bullet points */
+  gap: 30px; /* Space between each link */
+}
+
+/* Individual link styling */
+.header-links a {
+  text-decoration: none;
+  
+  /* Uses the --text-secondary color */
+  color: var(--text-secondary); 
+  font-weight: 500;
+  font-size: 1rem; /* 16px */
+  transition: color 0.2s ease;
+}
+
+/* Link hover effect */
+.header-links a:hover {
+  color: var(--color-accent); /* Changes to accent color on hover */
+}
+
+/* Theme toggle button styling */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  
+  /* Make the emoji icon larger */
+  font-size: 1.5rem; /* 24px */
+  
+  /* Center the icon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Uses the --text-secondary color */
+  color: var(--text-secondary);
+  transition: color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--color-accent); /* Changes to accent color on hover */
+}

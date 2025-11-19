@@ -1,0 +1,101 @@
+/* Skills section container */
+.skills {
+  /* Uses the default primary background */
+  background-color: var(--bg-primary); 
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--border-primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Section title */
+.skills-title {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 50px; /* Space below the title */
+}
+
+/* Grid for the skill cards */
+.skills-grid {
+  display: grid;
+  /* Creates 3 equal-width columns */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; /* Space between cards */
+}
+
+/* Individual skill card */
+.skill-card {
+  /* Use the card background color */
+  background-color: var(--bg-card); 
+  
+  /* Use the primary border */
+  border: 1px solid var(--border-primary); 
+  
+  border-radius: 12px;
+  padding: 30px;
+  
+  /* A subtle shadow for depth */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); 
+  
+  /* Smooth transition for theme switching */
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Add a hover effect to lift the card */
+.skill-card:hover {
+  transform: translateY(-5px); /* Lifts the card up slightly */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode specific shadow */
+[data-theme="dark"] .skill-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .skill-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card title */
+.skill-card-title {
+  /* Use the accent color for card titles */
+  color: var(--color-accent); 
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+/* List of skills */
+.skill-list {
+  list-style: none; /* Remove bullet points */
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px; /* Space between list items */
+}
+
+/* Individual skill list item */
+.skill-list li {
+  font-size: 1rem; /* 16px */
+  
+  /* Use the secondary text color */
+  color: var(--text-secondary); 
+  
+  /* A custom bullet/icon for style */
+  position: relative;
+  padding-left: 20px;
+}
+
+/* Custom bullet before each list item */
+.skill-list li::before {
+  content: '✓'; /* Checkmark icon */
+  position: absolute;
+  left: 0;
+  top: 0;
+  
+  /* Use your success color! */
+  color: var(--color-success); 
+  font-weight: 600;
+}

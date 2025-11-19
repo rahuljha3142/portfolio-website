@@ -1,0 +1,127 @@
+/* Contact section container */
+.contact {
+  display: grid;
+  /* 2-column grid, first column slightly smaller */
+  grid-template-columns: 2fr 3fr; 
+  gap: 60px;
+  align-items: flex-start; /* Aligns items to the top */
+  
+  background-color: var(--bg-primary);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--border-primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Left side text content */
+.contact-text {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-title {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.contact-description {
+  font-size: 1.125rem; /* 18px */
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Right side form */
+.contact-form {
+  width: 100%;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Dark mode specific shadow */
+[data-theme="dark"] .contact-form {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Style for input and textarea */
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-family: inherit;
+  
+  /* Use card background and primary text */
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+  
+  border: 1px solid var(--border-primary);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Focus style for inputs */
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(47, 115, 242, 0.2); /* Use your --color-primary */
+}
+
+/* Make textarea non-resizable vertically */
+.form-group textarea {
+  resize: vertical;
+}
+
+/* Submit button */
+.submit-button {
+  width: 100%;
+  padding: 15px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.submit-button:hover {
+  opacity: 0.85;
+}
+
+/* Status message for success/error */
+.status-message {
+  margin-top: 20px;
+  text-align: center;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.status-message.success {
+  background-color: rgba(60, 210, 120, 0.1); /* Light green */
+  color: var(--color-success);
+}
+
+.status-message.error {
+  background-color: rgba(255, 0, 0, 0.1); /* Light red */
+  color: #ff4d4d;
+}

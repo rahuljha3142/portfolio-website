@@ -1,0 +1,130 @@
+/* Projects section container */
+.projects {
+  /* Use the secondary background color */
+  background-color: var(--bg-secondary);
+  padding-top: 80px;
+  padding-bottom: 80px;
+  border-bottom: 1px solid var(--border-primary);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+/* Section title */
+.projects-title {
+  font-size: 2.5rem; /* 40px */
+  font-weight: 700;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* Grid for the project cards */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3-column grid */
+  gap: 30px;
+}
+
+/* Individual project card */
+.project-card {
+  /* Use the card background color */
+  background-color: var(--bg-card); 
+  border: 1px solid var(--border-primary);
+  border-radius: 12px;
+  
+  /* Hides any part of the image that spills out */
+  overflow: hidden; 
+  
+  display: flex;
+  flex-direction: column; /* Stacks image, content */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark mode specific shadow */
+[data-theme="dark"] .project-card {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .project-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Project image */
+.project-image {
+  width: 100%;
+  height: 200px; /* Fixed height for all images */
+  object-fit: cover; /* Covers the area, crops if needed */
+  border-bottom: 1px solid var(--border-primary);
+}
+
+/* Container for text content */
+.project-content {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Makes card content fill the space */
+}
+
+/* Project title */
+.project-title {
+  font-size: 1.25rem; /* 20px */
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+/* Project description */
+.project-description {
+  font-size: 0.9rem; /* 14px */
+  color: var(--text-secondary);
+  line-height: 1.6;
+  flex-grow: 1; /* Pushes links to the bottom */
+  margin-bottom: 20px;
+}
+
+/* Container for tech stack tags */
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+/* Individual tech stack tag */
+.project-tech-stack span {
+  font-size: 0.75rem; /* 12px */
+  font-weight: 500;
+  
+  /* Use your muted secondary color */
+  background-color: var(--color-secondary-muted); 
+  color: #ffffff;
+  
+  padding: 4px 10px;
+  border-radius: 20px;
+}
+
+/* Container for GitHub/Demo links */
+.project-links {
+  display: flex;
+  gap: 15px;
+}
+
+/* Individual project link */
+.project-link {
+  text-decoration: none;
+  font-size: 0.9rem; /* 14px */
+  font-weight: 600;
+  
+  /* Use the accent color */
+  color: var(--color-accent); 
+  transition: opacity 0.2s ease;
+}
+
+.project-link:hover {
+  opacity: 0.7;
+}

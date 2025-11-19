@@ -11,7 +11,6 @@ A professional personal portfolio website showcasing my web development skills, 
 ## 🚀 Live Demo
 
 **[View Live Portfolio](https://portfolio-website-psi-nine-46.vercel.app/)**
-*(Note: Replace this link with your actual Vercel URL after deployment)*
 
 ## ✨ Key Features
 
@@ -48,35 +47,45 @@ To run this project locally, you need to set up the backend environment variable
 
 ```env
 MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/portfolio
+```
 
 
 🏃‍♂️ Run Locally
 Clone the project:
 
+```bash
 git clone [https://github.com/rahuljha3142/portfolio-website.git](https://github.com/rahuljha3142/portfolio-website.git)
+```
 
 
 Go to the project directory:
 
+```bash
 cd portfolio-website
+```
 
 1. Setup & Run Backend
+
 Navigate to the server directory, install dependencies, and start the API:
 
+```bash
 cd server
 npm install
 node index.js
+```
 (The backend server will start on port 5000)
 
 2. Setup & Run Frontend
-Open a new terminal window, navigate to the root directory, and start the React app:
 
+Open a new terminal window, navigate to the root directory, and start the React app:
+```bash
 npm install
 npm run dev
+```
 (The frontend will start on port 5173)
 
 📂 Project Structure
-
+```bash
 portfolio-website/
 ├── server/              # Backend Node.js/Express Application
 │   ├── models/          # Mongoose Database Schemas
@@ -89,7 +98,7 @@ portfolio-website/
 │   └── main.jsx         # React Entry Point
 ├── vercel.json          # Configuration for Vercel Deployment
 └── vite.config.js       # Vite Configuration (including API Proxy)
-
+```
 
 🚀 Deployment
 This project is configured for seamless deployment on Vercel.
@@ -97,6 +106,7 @@ This project is configured for seamless deployment on Vercel.
 The included vercel.json file handles the configuration to serve both the React frontend and the Node.js backend as Serverless Functions within a single deployment.
 
 📬 Contact
+
 Rahul Raj
 
 📧 Email: rahulraaz3142@gmail.com

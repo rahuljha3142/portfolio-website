@@ -1,55 +1,82 @@
 const express = require('express');
 const cors = require('cors');
 const dotenv = require('dotenv');
-const connectDB = require('./db');
+const mongoose = require('mongoose');
+const nodemailer = require('nodemailer'); // <--- IMPORT NODEMAILER
 const Message = require('./models/Message');
 
 // Load env vars
 dotenv.config();
 
 // Connect to database
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('MongoDB connected successfully.');
+  } catch (err) {
+    console.error('MongoDB connection failed:', err.message);
+    process.exit(1);
+  }
+};
 connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// --- Middlewares ---
-// Enable CORS (Cross-Origin Resource Sharing)
-app.use(cors()); 
-// Parse JSON request bodies
+// Middlewares
+app.use(cors());
 app.use(express.json());
 
-// --- Routes ---
+// --- Nodemailer Config ---
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER, // Your email
+    pass: process.env.EMAIL_PASS, // Your App Password
+  },
+});
+
+// Routes
 app.get('/', (req, res) => {
   res.send('Portfolio Backend API Running');
 });
 
-// The API route for the contact form
 app.post('/api/contact', async (req, res) => {
   try {
-    // Get data from the request body
     const { name, email, message } = req.body;
 
-    // Create a new message
+    // 1. Save to MongoDB
     const newMessage = new Message({
       name,
       email,
       message,
     });
-
-    // Save it to the database
     await newMessage.save();
 
-    // Send a success response
+    // 2. Send Email Notification
+    const mailOptions = {
+      from: process.env.EMAIL_USER, // Sender address (your email)
+      to: process.env.EMAIL_USER,   // Receiver address (also your email)
+      subject: `New Portfolio Message from ${name}`,
+      html: `
+        <h3>New Contact Form Submission</h3>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Message:</strong></p>
+        <p>${message}</p>
+      `,
+    };
+
+    await transporter.sendMail(mailOptions);
+
     res.status(201).json({ success: true, message: 'Message sent successfully!' });
 
   } catch (err) {
-    console.error(err.message);
+    console.error('Error:', err.message);
     res.status(500).json({ success: false, message: 'Server Error' });
   }
 });
 
-// Start the server
 app.listen(PORT, () => {
   console.log(`Backend server listening on http://localhost:${PORT}`);
 });
